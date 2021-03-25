@@ -1,0 +1,231 @@
+/*
+Theme Name: BlankSlate
+Theme URI: https://github.com/tidythemes/blankslate
+Author: TidyThemes
+Author URI: http://tidythemes.com/
+Description: Please read: tidythemes.com/concept. BlankSlate is the definitive WordPress HTML5 boilerplate starter theme. We've carefully constructed the most clean and minimalist theme possible for designers and developers to use as a base to build websites for clients or to build completely custom themes from scratch. Clean, simple, unstyled, semi-minified, unformatted, and valid code, SEO-friendly, jQuery-enabled, no programmer comments, standardized and as white label as possible, and most importantly, the CSS is reset for cross-browser-compatability and no intrusive visual CSS styles have been added whatsoever. A perfect skeleton theme. For support and suggestions, go to: https://github.com/tidythemes/blankslate/issues. Thank you.
+Version: 2019.1
+License: GNU General Public License
+License URI: https://www.gnu.org/licenses/gpl.html
+Tags: one-column, two-columns, custom-menu, featured-images, microformats, sticky-post, threaded-comments, translation-ready
+Text Domain: blankslate
+
+BlankSlate WordPress Theme © 2011-2019 TidyThemes
+BlankSlate is distributed under the terms of the GNU GPL
+*/
+
+@import 'reset.scss';
+
+/** Variables **/
+:root {
+    /** Colors **/
+    --selection-color: rgba(193, 111, #000, #D4D4D7);
+
+    /** Fonts **/
+    --main-font-family: futura-pt, sans-serif;
+
+    /** Sizes **/
+    --wrap-width: 60rem;
+
+
+    /** Hamburger **/
+    --hamburger-width: 30px;
+    --hamburger-line-height: 2px;
+    --hamburger-spacing: 10px;
+    --hamburger-spacing-negative: -10px;
+    --hamburger-color: #000;
+    --hamburger-hover-color: #000;
+    --hamburger-timer: .2s;
+    --hamburger-slow-timer: .5s;
+}
+
+
+/* Default Styles */
+html {
+    height: 100%;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    scrollbar-width: none;
+}
+
+html ::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    height: 100%;
+    font-family: var(--main-font-family);
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+::selection {
+    background: var(--selection-color);
+}
+
+.wrap {
+    width: var(--wrap-width);
+    margin: auto;
+}
+
+
+/* Convert px to rem */
+@function rem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+
+/* Font Weight */
+.bold,
+strong {
+    font-weight: bold;
+}
+
+.regular {
+    font-weight: normal;
+}
+
+.italic,
+em {
+    font-style: italic;
+}
+
+/* Responsive Element -- Good for making perfect squares or circles */
+.responsive-element {
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        padding-top: 100%;
+    }
+}
+
+/* Responsive Iframe, Object, Embed */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: rem(30px);
+    height: 0;
+    overflow: hidden;
+
+    iframe,
+    object,
+    embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* Typography */
+a {
+    text-decoration: none;
+}
+
+.content {
+    h1 {
+        font-size: rem(40px);
+        line-height: rem(45px);
+    }
+
+    h2 {
+        font-size: rem(30px);
+        line-height: rem(50px);
+    }
+
+    h3 {
+        font-size: rem(20px);
+        line-height: rem(25px);
+    }
+
+    h4 {
+        font-size: rem(18px);
+        line-height: rem(23px);
+    }
+
+    p {
+        font-size: rem(16px);
+        line-height: rem(25px);
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: rem(25px);
+        margin-bottom: rem(25px);
+
+        li {
+            font-size: rem(16px);
+            line-height: rem(25px);
+        }
+    }
+
+    ol {
+        list-style: decimal;
+        padding-left: rem(25px);
+        margin-bottom: rem(25px);
+
+        li {
+            font-size: rem(16px);
+            line-height: rem(25px);
+        }
+    }
+}
+
+/* Input Styles */
+form {
+    box-sizing: border-box;
+
+    input,
+    textarea {
+        @extend form;
+
+        &::-webkit-input-placeholder {
+            color: var(--input-color);
+        }
+
+        &:-moz-placeholder {
+            color: var(--input-color);
+            opacity: 1;
+        }
+
+        &::-moz-placeholder {
+            color: var(--input-color);
+            opacity: 1;
+        }
+
+        &:-ms-input-placeholder {
+            color: var(--input-color);
+        }
+
+        &:placeholder-shown {
+            color: var(--input-color);
+        }
+    }
+
+}
+
+/* Mobile Styles */
+@media screen and (min-width:var(--wrap-width)) {
+
+    /* Turns "Stacked" Text Into One Line */
+    .linebreak br {
+        content: ' ';
+
+        &:after {
+            content: ' ';
+        }
+    }
+
+    .wrap {
+        width: 90%;
+    }
+
+}
